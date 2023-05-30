@@ -12,7 +12,6 @@ function App() {
          <div>
             <Cards characters={characters} />         
          </div>  
-            <hr />
       </div>
    );
 }
