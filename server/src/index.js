@@ -1,13 +1,30 @@
 const http = require("http");
-const characters = require("./utils/data.js");
+//const characters = require("./utils/data.js");
+const getCharacterbyId = require("./controllers/getCharById.js")
 const PORT = 3001;
 
 http.createServer((req, res) =>{
     res.setHeader('Acces-Control-Allow-Origin', '*');
     if( req.url.includes("/rickandmorty/character")){
         const id = req.url.split("/").pop(); //string
-        const character = characters.filter( char => char.id === Number(id)[0]);
-        res.writeHead(200, { "Content-Type": "application/json"});
-        res.end(JSON.stringify(character));
+        getCharacterbyId(res, id)
     }
 }).listen(PORT, "localhost");
+
+//! TAREA WEB SERVER
+
+// const http = require("http");
+// const characters = require("./utils/data.js");
+// const getCharacterbyId = require("./controllers/getCharById.js")
+// const PORT = 3001;
+
+// http.createServer((req, res) =>{
+//     res.setHeader('Acces-Control-Allow-Origin', '*');
+
+//     if( req.url.includes("/rickandmorty/character")){
+//         const id = req.url.split("/").pop(); //string
+//         const character = characters.filter( char => char.id === Number(id)[0]);
+//         res.writeHead(200, { "Content-Type": "application/json"});
+//         res.end(JSON.stringify(character));
+//     }
+// }).listen(PORT, "localhost");
