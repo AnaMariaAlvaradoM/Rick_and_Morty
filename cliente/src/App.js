@@ -1,18 +1,32 @@
 import Cards from './components/Cards/Cards.jsx';
-import SearchBar from './components/SearchBar/SearchBar.jsx';
-import characters from './data.js';
-import style from './App.module.css';
+import Nav from './components/Nav/Nav.jsx';
+import { useState } from 'react';
+//import characters from './data.js';
+//import style from './App.module.css';
 
 
 function App() {
+   const [characters, setCharacters] = useState([])
+   const example = {
+      id: 1,
+      name: 'Rick Sanchez',
+      status: 'Alive',
+      species: 'Human',
+      gender: 'Male',
+      origin: {
+         name: 'Earth (C-137)',
+         url: 'https://rickandmortyapi.com/api/location/1',
+      },
+      image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+   };
+   function onSearch(){
+      setCharacters([ ...characters, example ])
+   }
    return (
-      <div className='App' style = {{ padding: "0px"}}>
-         <div className=  {style.nav}>
-          <SearchBar onSearch={(characterID) => alert(characterID)} />
-         </div>
-         <div>
-            <Cards characters={characters} />         
-         </div>  
+      <div className='App' >
+   
+         <Nav onSearch = {onSearch} />
+            <Cards characters = {characters} />           
       </div>
    );
 }
