@@ -1,0 +1,17 @@
+.container{
+    border: none;
+    /* background-color: rgb(0, 240, 132); */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    width: 90vw; 
+    padding: 1em;
+    border-radius: 5em;
+    perspective: 1500px;
+    /* padding: 1em;
+    box-shadow: 10px 10px 5px 0px rgb(4, 4, 4);  */
+    /* text-shadow: 6px 4px 7px rgb(4, 4, 4); */
+    /* flex-direction: column; */
+
+}

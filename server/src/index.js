@@ -1,15 +1,15 @@
-const http = require("http");
-//const characters = require("./utils/data.js");
-const getCharacterbyId = require("./controllers/getCharById.js")
-const PORT = 3001;
+// const http = require("http");
+// //const characters = require("./utils/data.js");
+// const getCharacterbyId = require("./controllers/getCharById.js")
+// const PORT = 3001;
 
-http.createServer((req, res) =>{
-    res.setHeader('Acces-Control-Allow-Origin', '*');
-    if( req.url.includes("/rickandmorty/character")){
-        const id = req.url.split("/").pop(); //string
-        getCharacterbyId(res, id)
-    }
-}).listen(PORT, "localhost");
+// http.createServer((req, res) =>{
+//     res.setHeader('Acces-Control-Allow-Origin', '*');
+//     if( req.url.includes("/rickandmorty/character")){
+//         const id = req.url.split("/").pop(); //string
+//         getCharacterbyId(res, id)
+//     }
+// }).listen(PORT, "localhost");
 
 //! TAREA WEB SERVER
 

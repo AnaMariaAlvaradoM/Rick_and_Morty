@@ -1,12 +1,16 @@
 .SearchInput{
-    border: 0px;
+    border: 0;
     border-radius: 15px 0px 0px 15px;
+    border-color: rgb(0, 0, 0);
+    padding: 0.5em;
+  
 }
 .SearchButton{
     border: 0px;
     border-radius: 0px 15px 15px 0px ;
+    padding: 0.5em;
 }
 
 .bar{
-    width: 20%;
+    width: auto;
 }

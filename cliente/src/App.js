@@ -3,6 +3,7 @@ import SearchBar from './components/SearchBar/SearchBar.jsx';
 import characters from './data.js';
 import style from './App.module.css';
 
+
 function App() {
    return (
       <div className='App' style = {{ padding: "0px"}}>
