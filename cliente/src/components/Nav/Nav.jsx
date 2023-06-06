@@ -9,7 +9,7 @@ class Nav extends React.Component{
     }
     render(){
         return <nav className={style.nav}>
-            <SearchBar onSearch={(characterID) => alert(characterID)} />
+            <SearchBar onSearch={this.props.onSearch} />
         </nav>
     }
 }

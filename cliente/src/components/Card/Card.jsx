@@ -1,10 +1,10 @@
 import style from "./Card.module.css";
 
- function Card({ name, status, species, gender, image, origin, onClose }) {
+ function Card({ id, name, status, species, gender, image, origin, onClose }) {
    return (
       <div className={style.container}>
-         <button onClick={onClose} className={style.closeButton}>
-            X
+         <button onClick= {() => onClose(id)} className={style.closeButton} 
+         >X
          </button>
          <hr></hr>
          <h2 className={style.titleName}> {name}</h2>
