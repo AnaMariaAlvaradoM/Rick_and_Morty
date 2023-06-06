@@ -1,3 +1,4 @@
+/*! ESTILOS DE LA BARRA DE NAVEGACIÓN: */
 .nav{
     display: flex;
     justify-content: flex-end;
@@ -8,4 +9,16 @@
     margin: 1em 0em 1em 0em;
     width: auto;
  }
- 
+
+ /*! ESTILOS DE LOS BOTONES BARRA DE NAVEGACIÓN: */
+ .navButton {
+    /* Estilos generales del botón */
+    padding: 8px 16px;
+    background-color: #000000;
+    border: none;
+    border-radius: 4px;
+    color: #966305;
+    font-weight: bold;
+    text-decoration: none;
+    cursor:auto;
+}

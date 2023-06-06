@@ -7,11 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   
     background-image: url(./assets/Fondo_R&M.png);
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(./assets/Fondo_R&M.png); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: auto;
     background-attachment: fixed ;
-  
+
     
   
 }

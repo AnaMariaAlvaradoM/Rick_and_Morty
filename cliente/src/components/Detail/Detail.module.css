@@ -1,0 +1,28 @@
+.CardIndividual{
+    /* background-color:	transparent; */
+    background-color: rgba(197, 183, 183, 0.799);
+    border: ridge rgb(255, 253, 253) 5px;
+    display: flex;
+    flex-direction: column; 
+    width: 19em;
+    height: fit-content;
+    margin: 1em;
+    padding: 1em;
+}
+/*! Da estilo a la información */
+.informacionCard h2{
+    margin: 0.2em;
+    font-size: large;
+    color: rgb(188, 9, 9);
+}
+/*! Da estilo al titulo */
+.nombrePersonaje{
+    color: rgb(41, 12, 224);
+    font-family: Arial;
+    text-align: center;
+    font-size: 25px; /* Aquí puedes ajustar el tamaño de fuente según tus preferencias */
+    font-weight: bold; /* Puedes agregar negrita al texto si lo deseas */
+    text-transform: uppercase; /* Puedes convertir el texto en mayúsculas si lo deseas */
+    /* Agrega cualquier otra propiedad adicional que desees */
+    
+}

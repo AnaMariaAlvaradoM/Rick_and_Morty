@@ -1,4 +1,6 @@
 import style from "./Card.module.css";
+import { Link } from "react-router-dom";
+
 
  function Card({ id, name, status, species, gender, image, origin, onClose }) {
    return (
@@ -7,7 +9,7 @@ import style from "./Card.module.css";
          >X
          </button>
          <hr></hr>
-         <h2 className={style.titleName}> {name}</h2>
+         <Link to = {`/detail/${id}`}> <h1 className={style.titleName}> {name}</h1></Link>
          <img src={image} alt='' />
          <h2> Spicies: {species}</h2>
          <h2> Gender: {gender}</h2>
