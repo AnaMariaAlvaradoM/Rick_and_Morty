@@ -5,9 +5,9 @@ import styles from './Nav.module.css';
 //import style  from './NavLink.module.css'
 
 class Nav extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
       <nav className={styles.nav}>
@@ -18,6 +18,11 @@ class Nav extends React.Component {
         <button className={styles.navButton}>
           <NavLink to="/about" exact activeClassName={styles.isActive}>ABOUT</NavLink>
         </button>
+
+        <button className={styles.navButton}>
+          <NavLink to="/favorites" exact activeClassName={styles.isActive}>FAVORITE</NavLink>
+        </button> 
+
         <SearchBar onSearch={this.props.onSearch} />
       </nav>
     );

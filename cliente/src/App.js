@@ -6,6 +6,7 @@ import { Routes, Route,  useLocation, useNavigate } from 'react-router-dom';
 import About from './about/About.jsx'
 import Form from './components/Form/Form.jsx'
 import { Detail } from './components/Detail/Detail.jsx'
+import Favorites from './components/Favorites/Favorites.jsx';
 //import characters from './data.js';
 //import style from './App.module.css';
 
@@ -16,7 +17,7 @@ function App() {
    const [ access, setAcces] = useState(false)
 
    const EMAIL = 'ana_alvarado@henry.com'
-   const PASSWORD = 'Pass_1234'
+   const PASSWORD = '1234'
 
    function login ({ email, password }){
       if(email === EMAIL && password === PASSWORD){
@@ -52,6 +53,7 @@ function App() {
             <Route path='/home' element = {<Cards characters = {characters} onClose={onClose} />  }/>
             <Route path='/about' element = {<About/>}/>
             <Route path='/detail/:id' element = {<Detail/>}/>
+            <Route path='/favorites' element = {<Favorites/>}/>
          </Routes>
                   
       </div>

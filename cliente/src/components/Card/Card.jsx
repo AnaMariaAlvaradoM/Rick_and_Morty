@@ -1,14 +1,44 @@
 import style from "./Card.module.css";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import {addFav, removeFav} from '../../redux/actions/Actions';
+import { useState, useEffect } from "react";
+
+ function Card({ id, name, status, species, gender, image, origin, onClose, addFav, removeFav, myFavorites }) {
+
+   const [isFav, setIsFav] =  useState(false)
+
+   useEffect(() => {
+      myFavorites.forEach((charFav) => {
+         if (charFav.id === id) {
+            setIsFav(true); 
+         }
+      });
+   }, [myFavorites]);
+
+   function handleFavorite(){
+      if(isFav){
+         setIsFav(false)
+         removeFav(id)
+      }else{
+         setIsFav(true)
+         addFav({id, name, status, species, gender, image, origin})
+      }
+   }
 
 
- function Card({ id, name, status, species, gender, image, origin, onClose }) {
    return (
       <div className={style.container}>
-         <button onClick= {() => onClose(id)} className={style.closeButton} 
-         >X
+         <button onClick= {() => onClose(id)} className={style.closeButton} >X
          </button>
-         <hr></hr>
+         {
+            isFav ? (
+                <button onClick={handleFavorite}>❤️</button>
+            ) : (
+               <button onClick={handleFavorite}>🤍</button>
+            )
+         }
+         
          <Link to = {`/detail/${id}`}> <h1 className={style.titleName}> {name}</h1></Link>
          <img src={image} alt='' />
          <h2> Spicies: {species}</h2>
@@ -19,4 +49,21 @@ import { Link } from "react-router-dom";
    );
 }
 
-export default Card;
+export function mapDispatchToProps(dispatch){
+   return { 
+      addFav: function(character){
+         dispatch(addFav(character))
+      },
+      removeFav: function(id){
+         dispatch(removeFav(id))
+      }
+   }
+}
+export function mapStateToProps(state){
+   return{
+      myFavorites:state.myFavorites,
+   }
+}
+
+
+export default connect(mapDispatchToProps, mapStateToProps) (Card);
