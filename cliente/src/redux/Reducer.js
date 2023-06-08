@@ -1,21 +1,21 @@
-import { ADD_FAV, REMOVE_FAV } from './actions/Actions_types';
 
+import { ADD_FAV, REMOVE_FAV } from './actions/Actions_types';
 
 const initialState = {
     myFavorites:[],
 }
 
-function rootReducer(state = initialState, aciton){
-    switch(aciton.type){
+function rootReducer(state = initialState, {type, payload}){
+    switch(type){
         case ADD_FAV:
             return {
                 ...state,
-                myFavorites:[...state.myFavorites, aciton.payload]
+                myFavorites:[...state.myFavorites, payload]
             }
         case REMOVE_FAV:
             return {
                 ...state,
-                myFavorites:[...state.myFavorites.filter(char=> char.id !== aciton.payload)]
+                myFavorites:[...state.myFavorites.filter(char => char.id !== payload)]
             }
         default:
             return {...state}

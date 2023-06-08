@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
  function Card({ id, name, status, species, gender, image, origin, onClose, addFav, removeFav, myFavorites }) {
 
-   const [isFav, setIsFav] =  useState(false)
+   const [isFav, setIsFav] = useState(false)
 
    useEffect(() => {
       myFavorites.forEach((charFav) => {
@@ -22,10 +22,9 @@ import { useState, useEffect } from "react";
          removeFav(id)
       }else{
          setIsFav(true)
-         addFav({id, name, status, species, gender, image, origin})
+         addFav({id, name, status, species, gender, image, origin, onClose})
       }
    }
-
 
    return (
       <div className={style.container}>
@@ -61,9 +60,9 @@ export function mapDispatchToProps(dispatch){
 }
 export function mapStateToProps(state){
    return{
-      myFavorites:state.myFavorites,
+      myFavorites:state.myFavorites
    }
 }
 
 
-export default connect(mapDispatchToProps, mapStateToProps) (Card);
+export default connect(mapStateToProps, mapDispatchToProps) (Card);
