@@ -37,7 +37,7 @@ import { useState, useEffect } from "react";
                <button onClick={handleFavorite}>🤍</button>
             )
          }
-         
+         <h2> {id}</h2>
          <Link to = {`/detail/${id}`}> <h1 className={style.titleName}> {name}</h1></Link>
          <img src={image} alt='' />
          <h2> Spicies: {species}</h2>
