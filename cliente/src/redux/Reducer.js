@@ -6,19 +6,34 @@ const initialState = {
     allCharacters:[]
 }
 
-function rootReducer(state = initialState, {type, payload}){
+const rootReducer = (state = initialState, {type, payload}) =>{
     switch(type){
         case ADD_FAV:
             return {
                 ...state,
-                myFavorites:[...state.allCharacters, payload],
-                allCharacters: [...state.allCharacters, payload]
-            }
+                // myFavorites:[...state.allCharacters, payload],
+                // allCharacters: [...state.allCharacters, payload]
+                myFavorites: payload,
+                allCharacters: payload
+            };
+            
+        case REMOVE_FAV:
+            return {
+                ...state, 
+                myFavorites: payload,
+                
+                allCharacters: payload
+                        // ...state,
+                        // myFavorites:[...state.myFavorites.filter(char => char.id !== payload)]
+            };
             case FILTER:
-                const filtrados = state.allCharacters.filter( char => char.gender === payload )
+                const allCharactersfiltrados = state.allCharacters.filter( char => char.gender === payload )
                 return{
                     ...state,
-                    myFavorites: payload === 'All' ? state.allCharacters : filtrados
+                    myFavorites:
+                     payload === 'All' 
+                     ? [...state.allCharacters] 
+                      : allCharactersfiltrados
                 }
             case ORDER:
                 const orderChar = state.myFavorites.sort((x, y)=>{
@@ -33,11 +48,7 @@ function rootReducer(state = initialState, {type, payload}){
                     myFavorites:[...orderChar]
                 }
 
-            case REMOVE_FAV:
-                return {
-                    ...state,
-                    myFavorites:[...state.myFavorites.filter(char => char.id !== payload)]
-            }
+            
             default:
                 return {...state}
     }

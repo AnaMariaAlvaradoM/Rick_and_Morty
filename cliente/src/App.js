@@ -5,26 +5,38 @@ import axios from 'axios';
 import { Routes, Route,  useLocation, useNavigate } from 'react-router-dom';
 import About from './about/About.jsx'
 import Form from './components/Form/Form.jsx'
-import { Detail } from './components/Detail/Detail.jsx'
+import  {Detail}  from './components/Detail/Detail.jsx'
 import Favorites from './components/Favorites/Favorites.jsx';
 
+const email = 'ana_alvarado@henry.com'
+const password = '1111'
 
 function App() {
    const { pathname } = useLocation()
    const navigate = useNavigate()
    const [characters, setCharacters] = useState([])
-   const [ access, setAcces] = useState(false)
+   const [ access, setAccess] = useState(false)
 
-   const EMAIL = 'ana_alvarado@henry.com'
-   const PASSWORD = '1111'
 
-   function login ({ email, password }){
-      if(email === EMAIL && password === PASSWORD){
-         setAcces(true)
-         navigate('/home')
-      }
-      else alert('Usuario o contraseña no validos')
+   const login = (userData) => {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`)
+      .then(({ data }) => {
+         const { access } = data;
+         setAccess(access);
+         access && navigate('/home');
+      });
    }
+   // function login ({ email, password }){
+   //    if(email === EMAIL && password === PASSWORD){
+   //       setAcces(true)
+   //       navigate('/home')
+   //    }
+   //    else alert('Usuario o contraseña no validos')
+   // }
+
+
    useEffect(() => {
       !access && navigate('/')
    }, [access])
@@ -48,7 +60,7 @@ function App() {
    }
    return (  
        <div className='App'>
-        { pathname !== '/' &&  <Nav onSearch = {onSearch} />}
+        {  pathname  !== '/' &&  <Nav onSearch = {onSearch} />}
          <Routes>
             <Route path='/' element = {<Form login = {login}/>}/>
             <Route path='/home' element = {<Cards characters = {characters} onClose={onClose} />  }/>
