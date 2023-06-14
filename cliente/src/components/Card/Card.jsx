@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
       });
    }, [myFavorites]);
 
-   function handleFavorite(){
+   const handleFavorite = () =>{
       if(isFav){
          setIsFav(false)
          removeFav(id)
@@ -25,13 +25,12 @@ import { useState, useEffect } from "react";
          addFav({id, name, status, species, gender, image, origin, onClose})
       }
    }
-
    return (
       <div className={style.container}>
          <button onClick= {() => onClose(id)} className={style.closeButton} >X
          </button>
          {
-            isFav ? (
+            isFav? (
                 <button onClick={handleFavorite}>❤️</button>
             ) : (
                <button onClick={handleFavorite}>🤍</button>

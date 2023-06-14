@@ -1,6 +1,5 @@
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { filterCards, orderCards } from "../../redux/actions/Actions";
-import { useDispatch } from "react-redux";
 import Card from "../Card/Card";
 import { useState } from "react";
 
@@ -9,7 +8,7 @@ import { useState } from "react";
     const dispatch = useDispatch ();
     const [aux, setAux] = useState(false);
 
-    const handleOrder = function(event){
+    const handleOrder = (event)=>{
         dispatch(orderCards(event.target.value));
         setAux(true);
 
@@ -42,8 +41,6 @@ import { useState } from "react";
                     name = {fav.name}
                     species = {fav.species}
                     gender = {fav.gender}
-                    status={fav.status}
-                    // origin={fav.origin}
                     image = {fav.image}
                     onClose={fav.onClose}
              />

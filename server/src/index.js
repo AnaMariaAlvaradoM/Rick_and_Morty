@@ -25,7 +25,7 @@ server.use((req, res, next) => {
  server.use('/rickandmorty', router);
 
 server.listen(PORT, () => {
-   console.log(`Server raised in port: ${PORT}`);
+   console.log('Server raised in port:'+ PORT);
 }); 
 
 

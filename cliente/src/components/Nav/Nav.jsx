@@ -12,15 +12,15 @@ class Nav extends React.Component {
     return (
       <nav className={styles.nav}>
         <button className={styles.navButton}>
-          <NavLink to="/home" exact activeClassName={styles.isActive}>HOME</NavLink>
+          <NavLink to="/home" exact="true"  activeclassname={styles.isActive}>HOME</NavLink>
         </button> 
         
         <button className={styles.navButton}>
-          <NavLink to="/about" exact activeClassName={styles.isActive}>ABOUT</NavLink>
+          <NavLink to="/about" exact="true" activeclassname={styles.isActive}>ABOUT</NavLink>
         </button>
 
         <button className={styles.navButton}>
-          <NavLink to="/favorites" exact activeClassName={styles.isActive}>FAVORITE</NavLink>
+          <NavLink to="/favorites" exact="true" activeclassname={styles.isActive}>FAVORITE</NavLink>
         </button> 
 
         <SearchBar onSearch={this.props.onSearch} />
